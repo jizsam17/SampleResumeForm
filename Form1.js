@@ -34,6 +34,7 @@ function load_view(){
 }
 function home_view(){
     document.getElementById("view_table").style.display="none";
+    document.getElementById("formEdit").style.display="none";
     document.getElementById("form1").style.display="block"
     //document.getElementById("content").innerHTML='<object type="text/html" data="view.html" ></object>';
     //alert("Button clicked");
@@ -48,8 +49,8 @@ function btn_edit(){
     var end_date=document.querySelector("#data_table").rows[1].cells.item(4).innerHTML;
     var status=document.querySelector("#data_table").rows[1].cells.item(5).innerHTML;
 
-    document.querySelector("#inputJobTitle").value=jbtitle;
-    document.querySelector("#inputExperience").selectedIndex=exp;
+    document.querySelector("#JobTitle").value=jbtitle;
+    document.querySelector("#Experience").selectedIndex=exp;
     
     var sel_Date = new Date(st_date)
     var dd = String(sel_Date.getDate()).padStart(2, '0');
@@ -66,14 +67,14 @@ function btn_edit(){
 
 
 
-    document.querySelector("#inputStartDate").value=st_date;
-    document.querySelector("#inputEndDate").value=end_date;
+    document.querySelector("#StDate").value=st_date;
+    document.querySelector("#EdDate").value=end_date;
     
     if(status=="0"){
-        document.getElementById("accessTrue").checked=false;
-        document.getElementById("accessFalse").checked="true";
+        document.getElementById("AccessTrue").checked=false;
+        document.getElementById("AccessFalse").checked="true";
     }
     
 
-    document.getElementById("form1").style.display="block"
+    document.getElementById("formEdit").style.display="block"
 }
