@@ -17,7 +17,7 @@
     <div class="col-3 dashboard" style="padding: 10px">
     <h2>DashBoard</h2>
     <div class= "row" style="padding: 5px">
-    <button type="button" class="btn btn-outline-primary">Home</button>
+    <button type="button" class="btn btn-outline-primary" onclick="home_view()">Home</button>
     </div>
     <div class= "row" style="padding: 5px">
     <button type="button" class="btn btn-outline-primary" id="click" onclick="load_view()" >View</button>
@@ -55,6 +55,13 @@
                   <input type="date" class="form-control" id="inputStartDate" name="date" required onchange="validateDate()">
                 </div>
               </div>
+              <!-- End date date datepicker -->
+            <div class="row mb-3">
+                <label for="inputStartDate" class="col-sm-2 col-form-label">End date Date</label>
+                <div class="col-sm-8">
+                  <input type="date" class="form-control" id="inputEndDate" name="date" required onchange="validateDate()">
+                </div>
+              </div>
               <!-- Status access radiobutton -->
             <fieldset class="row mb-3">
               <legend class="col-form-label col-sm-2 pt-0">Access Status</legend>
@@ -78,7 +85,7 @@
             </div>
           </form>
           <div id="view_table">
-        <table class="table">
+        <table class="table" id="data_table">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -87,16 +94,18 @@
       <th scope="col">Start Date</th>
       <th scope="col">End Date</th>
       <th scope="col">Status</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
       <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>abc</td>
-      <td>@frg</td>
+      <td>1</td>
+      <td>2021-6-12</td>
+      <td>2021-6-15</td>
+      <td>0</td>
+      <td><button type="button" class="btn btn-outline-primary" onclick="btn_edit()">Edit</button></td>
     </tr>
     <tr>
       <th scope="row">2</th>
