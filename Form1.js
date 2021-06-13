@@ -9,42 +9,73 @@ function ssubmit(){
     alert(id+" "+jbt+" "+exp+" "+st+" "+dt+" "+sta);
 }
 
-function validateDate(){
+function validateDate(event){
+    //console.log(event.target.value)
     var today = new Date(); //Thu Jun 10 2021 15:39:26 GMT+0530 (India Standard Time)
-    // var dd = String(today.getDate()).padStart(2, '0');
-    // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    // var yyyy = today.getFullYear();
-    // today = mm + '/' + dd + '/' + yyyy;
-    var st_date = document.querySelector("#inputStartDate");
-    var sel_Date = new Date(st_date.value)
+
+    //var st_date = document.querySelector("#inputStartDate");
+    var sel_Date = new Date(event.target.value)
     if(sel_Date.getTime() < today.getTime())
     {
         alert("Please select a valid date");
+        event.target.value="";
     }
+    
 }  
 
-// var clk=document.querySelector("#click");
-// clk.addEventListener("click",()=>{
-//     alert("Button clicked");
-// })
+function validateEndDate(){
+    var st_date = new Date(document.querySelector("#inputStartDate").value);
+    var end_date = new Date(document.querySelector('#inputEndDate').value);
+
+    var today = new Date();
+
+    if(end_date.getTime() < today.getTime())
+    {
+        alert("Please select a valid date");
+        document.querySelector("#inputEndDate").value="";
+    }
+
+    else if(end_date.getTime() <= st_date.getTime())
+    {
+        alert("Please select a valid date");
+        document.querySelector("#inputEndDate").value="";
+    }
+    
+}
+
+function validateUpdateEndDate(){
+    var st_date = new Date(document.querySelector("#StDate").value);
+    var end_date = new Date(document.querySelector('#EdDate').value);
+
+    var today = new Date();
+
+    if(end_date.getTime() < today.getTime())
+    {
+        alert("Please select a valid date");
+        document.querySelector("#EdDate").value="";
+    }
+
+    else if(end_date.getTime() <= st_date.getTime())
+    {
+        alert("Please select a valid date");
+        document.querySelector("#EdDate").value="";
+    }
+    
+}
+
 function load_view(){
     document.getElementById("form1").style.display="none";
     document.getElementById("formEdit").style.display="none";
     document.getElementById("view_table").style.display="block"
-    //document.getElementById("content").innerHTML='<object type="text/html" data="view.html" ></object>';
-    //alert("Button clicked");
 }
 function home_view(){
     document.getElementById("view_table").style.display="none";
     document.getElementById("formEdit").style.display="none";
     document.getElementById("form1").style.display="block"
-    //document.getElementById("content").innerHTML='<object type="text/html" data="view.html" ></object>';
-    //alert("Button clicked");
 }
 
 function btn_edit(event){
     document.getElementById("view_table").style.display="none";
-    //console.log(event.target.parentNode.parentNode.cells[0].innerHTML);
 
     var tableRow =event.target.parentNode.parentNode;
     

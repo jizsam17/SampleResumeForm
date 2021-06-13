@@ -90,7 +90,7 @@ include("connect.php");
               <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
               <div class="col-sm-8">
                 <input type="date" class="form-control" id="inputStartDate" name="date" required
-                  onchange="validateDate()">
+                  onchange="validateDate(event)">
               </div>
             </div>
             <!-- End date date datepicker -->
@@ -98,7 +98,7 @@ include("connect.php");
               <label for="inputStartDate" class="col-sm-2 col-form-label">End date Date</label>
               <div class="col-sm-8">
                 <input type="date" class="form-control" id="inputEndDate" name="end_date" required
-                  onchange="validateDate()">
+                  onchange="validateEndDate(event)">
               </div>
             </div>
             <!-- Status access radiobutton -->
@@ -198,14 +198,14 @@ include("connect.php");
               <div class="row mb-3">
                 <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
                 <div class="col-sm-8">
-                  <input type="date" class="form-control" id="StDate" name="sdate" required onchange="validateDate()">
+                  <input type="date" class="form-control" id="StDate" name="sdate" required onchange="validateDate(event)">
                 </div>
               </div>
               <!-- End date date datepicker -->
               <div class="row mb-3">
                 <label for="inputStartDate" class="col-sm-2 col-form-label">End date Date</label>
                 <div class="col-sm-8">
-                  <input type="date" class="form-control" id="EdDate" name="ddate" required onchange="validateDate()">
+                  <input type="date" class="form-control" id="EdDate" name="ddate" required onchange="validateUpdateEndDate()">
                 </div>
               </div>
               <!-- Status access radiobutton -->
