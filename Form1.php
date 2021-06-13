@@ -1,3 +1,6 @@
+<?php
+include("connect.php");
+?>
 <html>
     <head>
         <!-- CSS only -->
@@ -10,6 +13,15 @@
 
     <style>
   <?php include "Form1.css" ?>
+  tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 2px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top:1%;
+    padding-bottom:1%;
+}
   </style>
 
     <div class="containerRow">
@@ -59,7 +71,7 @@
             <div class="row mb-3">
                 <label for="inputStartDate" class="col-sm-2 col-form-label">End date Date</label>
                 <div class="col-sm-8">
-                  <input type="date" class="form-control" id="inputEndDate" name="date" required onchange="validateDate()">
+                  <input type="date" class="form-control" id="inputEndDate" name="end_date" required onchange="validateDate()">
                 </div>
               </div>
               <!-- Status access radiobutton -->
@@ -87,10 +99,10 @@
 
 
           <div id="view_table">
-          <table class="table" id="data_table">
-           <thead>
+          <table class="table-style table" id="data_table""> 
+    <thead>
           <tr>
-            <th scope="col">id</th>
+            <th scope="col">No</th>
             <th scope="col">Job Title</th>
             <th scope="col">Experience</th>
             <th scope="col">Start Date</th>
@@ -99,33 +111,31 @@
             <th scope="col">Action</th>
           </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>1</td>
-              <td>2021-6-12</td>
-              <td>2021-6-15</td>
-              <td>0</td>
-              <td><button type="button" class="btn btn-outline-primary" onclick="btn_edit()">Edit</button></td>
-            </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@dfgdg</td>
-                <td>@grgr</td>
-              </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>@mdgrgo</td>
-              <td>@grgr</td>
-            </tr>
-          </tbody>
-          </table>
+    
+    <?php
+    $newId=1;
+           $sql = "SELECT * FROM data_table";
+           $result = $con->query($sql);
+           while( $row = $result->fetch_assoc()){
+        
+        echo "<tr>";
+        echo "<td>".$newId . "</td>";
+        echo "<td>".$row['job_title'] . "</td>";
+        echo "<td>".$row['experience'] . "</td>";
+        echo "<td>".$row['starting_date'] . "</td>";
+        echo "<td>".$row['end_date'] . "</td>";
+        echo "<td>".$row['status'] . "</td>";
+        echo "<td ><button type='button' class='btn btn-outline-primary' onclick='btn_edit(this)'>Edit</button></td>";
+        //echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";
+        ?>
+          
+          <?php
+        echo "</tr>";
+       
+        $newId++;
+    }
+    ?>
+    </table>
         </div>
 
 
