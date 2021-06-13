@@ -29,13 +29,21 @@ include("connect.php");
     <div class="col-3 dashboard" style="padding: 10px">
     <h2>DashBoard</h2>
     <div class= "row" style="padding: 5px">
-    <button type="button" class="btn btn-outline-primary" onclick="home_view()">Home</button>
+    <button type="button" class="btn btn-outline-primary" onclick="home_view()" disabled>Home</button>
     </div>
     <div class= "row" style="padding: 5px">
-    <button type="button" class="btn btn-outline-primary" id="click" onclick="load_view()" >View</button>
+    <button type="button" class="btn btn-outline-primary" id="click" onclick="load_view()" disabled>View</button>
     </div>
     </div>
     <div class="col-9">
+
+      <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+      <button type="button" class="btn btn-outline-primary" onclick="home_view()" id="btn_add">Add</button>
+        </div>
+      </div>
+
       <div id="content"> 
         <form onsubmit="ssubmit() " action="data_store.php" method="post" id="form1">
             <!-- JobTitle TextBox -->

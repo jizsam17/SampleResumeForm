@@ -44,11 +44,6 @@ function home_view(){
 function btn_edit(ed){
     document.getElementById("view_table").style.display="none";
 
-    var table = document.getElementById('data_table');
-    var cells = table.getElementsByTagName('td');
-
-    console.log(ed);
-
     var jbtitle=document.querySelector("#data_table").rows[1].cells.item(1).innerHTML;
     // var exp=document.querySelector("#data_table").rows[1].cells.item(2).innerHTML;
     // var st_date=document.querySelector("#data_table").rows[1].cells.item(3).innerHTML;

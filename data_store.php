@@ -24,6 +24,7 @@ VALUES ('$user_name', '$experience', ' $date','$end_date',$status_value)";
 if (mysqli_query($con, $sql)) {
       
     echo "New record created successfully ";
+    header("Location:Form1.php");
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($con);
   }

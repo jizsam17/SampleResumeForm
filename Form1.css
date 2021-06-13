@@ -10,18 +10,25 @@
     padding: 10px;
 }
 
+#content{
+    margin-top: 5px;
+}
 .center {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
 #view_table{
-    display: none;
+    /* display: none; */
 }
 #formEdit{
+    display:none;
+}
+
+#form1{
     display:none;
 }
