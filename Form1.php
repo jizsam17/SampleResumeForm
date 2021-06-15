@@ -3,82 +3,16 @@ include("connect.php");
 include("header.php")
 ?>
 
-      <div class="col-9">
+      
 
-      <div class="row">
-        <div class="col-10"></div>
-        <div class="col-2">
-      <button type="button" class="btn btn-outline-primary" onclick="home_view()" id="btn_add">Add</button>
-        </div>
-      </div>
+      
 
 
-        <div id="content">
-          <form onsubmit="" action="data_store.php" method="post" id="form1">
-            <!-- JobTitle TextBox -->
-            <div class="row mb-3">
-              <label for="inputJobTitle" class="col-sm-2 col-form-label">Job Title</label>
-              <div class="col-sm-8">
-                <input type="text" name="user_name" class="form-control" id="inputJobTitle" required>
-              </div>
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
-            </div>
-            <!-- Experience dropdown -->
-            <div class="row mb-3">
-              <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-              <div class="col-sm-8">
-                <select class="custom-select" name="experience" id="inputExperience" style="width: 130px;" required>
-                  <option value="">Choose...</option>
-                  <option value="1">1 year</option>
-                  <option value="2">2 years</option>
-                  <option value="3">6 months</option>
-                </select>
-              </div>
-            </div>
-            <!-- Start date datepicker -->
-            <div class="row mb-3">
-              <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
-              <div class="col-sm-8">
-                <input type="date" class="form-control" id="inputStartDate" name="date" required
-                  onchange="validateDate(event)">
-              </div>
-            </div>
-            <!-- End date date datepicker -->
-            <div class="row mb-3">
-              <label for="inputStartDate" class="col-sm-2 col-form-label">End date Date</label>
-              <div class="col-sm-8">
-                <input type="date" class="form-control" id="inputEndDate" name="end_date" required
-                  onchange="validateEndDate(event)">
-              </div>
-            </div>
-            <!-- Status access radiobutton -->
-            <fieldset class="row mb-3">
-              <legend class="col-form-label col-sm-2 pt-0">Access Status</legend>
-              <div class="col-sm-8">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="accessTrue" value="true" checked>
-                  <label class="form-check-label" for="accessTrue">
-                    Yes
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="status" id="accessFalse" value="false">
-                  <label class="form-check-label" for="accessFalse">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-            <div class="center d-grid gap-2 col-3 mx-auto">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+        
 
 
           <div id="view_table">
-            <table class="table-style table" id="data_table""> 
+            <table class="table table-hover" id="data_table"> 
     <thead>
           <tr>
             <th scope=" col">No</th>
@@ -92,27 +26,27 @@ include("header.php")
               </thead>
 
               <?php
-    $newId=1;
+          $newId=1;
            $sql = "SELECT * FROM data_table";
            $result = $con->query($sql);
            while( $row = $result->fetch_assoc()){
+            ?>
+        <tr>
+      <th scope="row"><?php echo "$newId" ?></th>
+      <td><?php echo "$row[job_title]" ?></td>
+      <td><?php echo "$row[experience]" ?></td>
+      <td><?php echo "$row[starting_date]" ?></td>
+      <td><?php echo "$row[end_date]" ?></td>
+      <td><?php echo "$row[status]" ?></td>
+      <td><button type='button' class='btn btn-outline-primary' onclick='btn_edit(event)'>Edit</button></td>
         
-        echo "<tr>";
-        echo "<td>".$newId . "</td>";
-        echo "<td>".$row['job_title'] . "</td>";
-        echo "<td>".$row['experience'] . "</td>";
-        echo "<td>".$row['starting_date'] . "</td>";
-        echo "<td>".$row['end_date'] . "</td>";
-        echo "<td>".$row['status'] . "</td>";
-         echo "<td><button type='button' class='btn btn-outline-primary' onclick='btn_edit(event)'>Edit</button></td>";
-        ?>
               <!-- <td ><button type="button" class="btn btn-outline-primary" onclick="btn_edit(this)">Edit</button></td>  -->
               <!-- <td><a href="editbackend.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-primary"
-                  onclick="btn_edit(this)">Edit</a></td> -->
+                  onclick="btn_edit(event)">Edit</a></td> -->
 
-              <?php
-        echo "</tr>";
-       
+              
+        </tr>
+        <?php
         $newId++;
     }
     ?>

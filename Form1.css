@@ -6,8 +6,8 @@
     margin-right: 100px; */
 } 
 
-.col-3 dashboard{
-    padding: 10px;
+#view_table{
+    margin-top: 5px;
 }
 
 #content{
@@ -20,15 +20,4 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
-
-#view_table{
-    /* display: none; */
-}
-#formEdit{
-    display:none;
-}
-
-#form1{
-    display:none;
 }

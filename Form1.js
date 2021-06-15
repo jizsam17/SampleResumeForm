@@ -1,3 +1,4 @@
+
 function ssubmit(){
     
     var id = document.getElementById("id").value;
@@ -64,14 +65,17 @@ function validateUpdateEndDate(){
 }
 
 function load_view(){
-    document.getElementById("form1").style.display="none";
-    document.getElementById("formEdit").style.display="none";
-    document.getElementById("view_table").style.display="block"
+    //alert("load_view click");
+    location.href="view.php";
+    // document.getElementById("form1").style.display="none";
+    // document.getElementById("formEdit").style.display="none";
+    // document.getElementById("view_table").style.display="block"
 }
-function home_view(){
-    document.getElementById("view_table").style.display="none";
-    document.getElementById("formEdit").style.display="none";
-    document.getElementById("form1").style.display="block"
+function add_view(){
+    location.href="add.php";
+    // document.getElementById("view_table").style.display="none";
+    // document.getElementById("formEdit").style.display="none";
+    // document.getElementById("form1").style.display="block"
 }
 
 function btn_edit(event){
@@ -109,6 +113,6 @@ function btn_edit(event){
         document.getElementById("AccessFalse").checked="true";
     }
 
-    document.getElementById("formEdit").style.display="block"
+    location.href="edit.php";
 
 }

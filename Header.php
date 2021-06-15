@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./Form1.css">
 </head>
 
-<body>
+<body style="overflow-x:hidden">
 
   <style>
     <?php include "Form1.css"?>
@@ -39,9 +39,10 @@
 
   <div class="containerRow">
     <div class="row">
-      <div class="col-3 dashboard" style="padding: 10px">
+      <div class="col-3 dashboard">
         <h2>DashBoard</h2>
         <div class="row" style="padding: 5px">
           <button type="button" class="btn btn-outline-primary" onclick="load_view()">Home</button>
         </div>
       </div>
+      <div class="col-9">

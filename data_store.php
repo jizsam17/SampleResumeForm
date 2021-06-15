@@ -29,5 +29,12 @@ if (mysqli_query($con, $sql)) {
     echo "Error: " . $sql . "<br>" . mysqli_error($con);
   }
 
+  function getData($table){
+    //global $con;
+    $result = $con->query("SELECT * FROM $table");
+    $resArray = (array)$result
+    return json_encode($resArray);
+}
+
   mysqli_close($con);
   ?>
