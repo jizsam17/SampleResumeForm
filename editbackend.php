@@ -2,26 +2,58 @@
 include("connect.php");
 include("data_store_n.php");
 $resume_parser_object = new Resume_parser();
+$errors = [];
 
 if($_POST){
-  if(empty($_POST['job_title'])){
-    echo '<script> alert("empty") </script>';
+        if(empty($_POST['username'])){
+          //echo '<script> alert("empty") </script>';
+          $errors['username'] = "Job title is required";
+      }
+      if(empty($_POST['exp'])){
+        //echo '<script> alert("empty") </script>';
+        $errors['experience'] = "Experience is required";
+      }
+      if(empty($_POST['sdate'])){
+        //echo '<script> alert("empty") </script>';
+        $errors['starting_date'] = "Start date is required";
+      }
+      if(empty($_POST['ddate'])){
+        //echo '<script> alert("empty") </script>';
+        $errors['end_date'] = "End date is required";
+      }
+      if(empty($_POST['Acstatus'])){
+        //echo '<script> alert("empty") </script>';
+        $errors['status'] = "Experience is required";
+      }
+if(!empty($errors)){
+  // echo '<script type="text/javascript"> 
+  // function display_error(){
+  //   document.querySelector("#jobtitle").addClass("has-error");
+  //   document.querySelector("#jobtitle").append(<div class="help-block"> Error </div>);
+  //   }
+  //   </script>';
+
+  if($errors['username']){
+          echo '<script type="text/javascript"> alert("Job title required") </script>';
+        }
+        if($errors['experience']){
+          echo '<script type="text/javascript"> alert("Experience required") </script>';
+        }
+        if($errors['starting_date']){
+          echo '<script type="text/javascript"> alert("Start date required") </script>';
+        }
+        if($errors['end_date']){
+          echo '<script type="text/javascript"> alert("End date required") </script>';
+        }
+        if($errors['status']){
+          echo '<script type="text/javascript"> alert("Status required") </script>';
+        }
   }
-  if(empty($_POST['experience'])){
-  echo '<script> alert("empty") </script>';
+  else{
+    $job_obj = new job_details($_POST['username'],$_POST['exp'],$_POST['sdate'],$_POST['ddate'],$_POST['Acstatus']);
+    $query = $job_obj->update_job($_POST['id']);
+    $resume_parser_object->query_execute($query);
   }
-  if(empty($_POST['starting_date'])){
-  echo '<script> alert("empty") </script>';
-  }
-  if(empty($_POST['end_date'])){
-  echo '<script> alert("empty") </script>';
-  }
-  if(empty($_POST['status'])){
-  echo '<script> alert("empty") </script>';
-  }
-  $job_obj = new job_details($_POST['username'],$_POST['exp'],$_POST['sdate'],$_POST['ddate'],$_POST['Acstatus']);
-  $query = $job_obj->update_job($_POST['id']);
-  $resume_parser_object->query_execute($query);
 }
 
 

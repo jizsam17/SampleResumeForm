@@ -54,18 +54,18 @@ class Resume_parser{
 				}
 		}
 
-		// public function insert_jobDetails(job_details $job)
-        // {
-		// 	$query=$job->insert_job();
-        //     $sql = $this->con->query($query);
-        //     if($sql==true)
-        //     {
-        //         header('location:view.php');
-        //     }
-        //     else{
-        //         echo "Job Details Insertion Failed";
-        //     }
-        // }
+		public function insert_jobDetails(job_details $job)
+        {
+			$query=$job->insert_job();
+            $sql = $this->con->query($query);
+            if($sql==true)
+            {
+                header('location:view.php');
+            }
+            else{
+                echo "Job Details Insertion Failed";
+            }
+        }
 
 		public function query_execute($query)
 		{
